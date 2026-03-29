@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_dark">
+
+    <!-- ✅ Thanh chọn nhiều -->
+    <LinearLayout
+        android:id="@+id/layoutSelectionBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/bg_selection_bar"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvSelectionCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/btnSelectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn tất cả"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnAddFavMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Yêu thích"
+            android:textColor="@color/heart_red"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnDeleteMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Xóa"
+            android:textColor="@color/error"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnRenameMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Sửa tên"
+            android:textColor="@color/success"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnCancelMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"/>
+
+    </LinearLayout>
+
+    <!-- Modern Search Bar -->
+    <EditText
+        android:id="@+id/etSearchMusic"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_search_bar"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/text_hint"
+        android:hint="Tìm tên bài hát hoặc ca sĩ..."
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        tools:ignore="UseAppTint"/>
+
+    <!-- Song count + sort -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="6dp">
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/btnSortMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sắp xếp ▾"
+            android:textColor="@color/primary_light"
+            android:textSize="12sp"
+            android:background="@drawable/bg_pill_button"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSongs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="4dp"
+        android:layoutAnimation="@anim/layout_animation_fall_down"/>
+
+    <!-- ═══ Modern Mini Player ═══ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_mini_player"
+        android:orientation="vertical"
+        android:elevation="8dp">
+
+        <!-- Progress bar on top of mini player -->
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:progressTint="@color/primary"
+            android:thumbTint="@color/primary"
+            android:thumb="@null"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:background="@color/seek_track"
+            android:splitTrack="false"
+            android:maxHeight="4dp"
+            android:minHeight="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:paddingTop="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Album Art in Mini Player -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                android:layout_marginEnd="12dp">
+
+                <ImageView
+                    android:id="@+id/imgMiniPlayerArt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:background="@color/surface_card_light"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Song info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNowTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa chọn bài"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/tvNowArtist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:id="@+id/tvCurrentTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:00"
+                        android:textColor="@color/text_hint"
+                        android:textSize="10sp"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:00"
+                        android:textColor="@color/text_hint"
+                        android:textSize="10sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Playback controls -->
+            <ImageButton
+                android:id="@+id/btnShuffle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                android:background="@drawable/ripple_circle"
+                app:tint="@color/text_hint"/>
+
+            <ImageButton
+                android:id="@+id/btnPrev"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:background="@drawable/ripple_circle"
+                app:tint="@color/text_primary"
+                android:layout_marginStart="4dp"/>
+
+            <ImageButton
+                android:id="@+id/btnPlayPause"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@drawable/bg_play_circle"
+                android:tint="@android:color/white"
+                android:padding="10dp"
+                android:layout_marginHorizontal="6dp"
+                tools:ignore="UseAppTint"/>
+
+            <ImageButton
+                android:id="@+id/btnNext"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_media_next"
+                android:background="@drawable/ripple_circle"
+                app:tint="@color/text_primary"/>
+
+            <ImageButton
+                android:id="@+id/btnRepeat"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_rotate"
+                android:background="@drawable/ripple_circle"
+                app:tint="@color/text_hint"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

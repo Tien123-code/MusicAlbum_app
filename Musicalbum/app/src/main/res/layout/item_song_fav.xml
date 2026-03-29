@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/ripple_card">
+
+    <TextView
+        android:id="@+id/tvSongIndex"
+        android:layout_width="28dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="14dp">
+
+        <TextView
+            android:id="@+id/tvSongTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/tvSongArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"/>
+
+    </LinearLayout>
+
+    <!-- Nút bỏ yêu thích -->
+    <ImageView
+        android:id="@+id/btnHeartSong"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@android:drawable/btn_star_big_on"
+        android:padding="2dp"
+        android:background="@drawable/ripple_circle"/>
+
+</LinearLayout>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Blurred background image -->
+    <ImageView
+        android:id="@+id/imgBlurBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.3"/>
+
+    <!-- Gradient overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_player_gradient"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Back button -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ripple_circle"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/text_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Now Playing label -->
+        <TextView
+            android:id="@+id/tvNowPlayingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ĐANG PHÁT"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            android:letterSpacing="0.15"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnBack"
+            app:layout_constraintBottom_toBottomOf="@id/btnBack"/>
+
+        <!-- Menu button -->
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ripple_circle"
+            android:src="@android:drawable/ic_menu_more"
+            app:tint="@color/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Rotating Album Art Container -->
+        <FrameLayout
+            android:id="@+id/albumArtContainer"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBack">
+
+            <!-- Vinyl disc background -->
+            <ImageView
+                android:id="@+id/imgVinylDisc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_vinyl_disc"
+                android:scaleType="centerCrop" />
+
+            <!-- Album art (rotating, circular) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="110dp"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:id="@+id/imgAlbumArt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:background="@color/surface_card_light"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+        <!-- Song Title -->
+        <TextView
+            android:id="@+id/tvSongTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="36dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="Song Title"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumArtContainer" />
+
+        <!-- Artist Name -->
+        <TextView
+            android:id="@+id/tvArtistName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="36dp"
+            android:text="Artist Name"
+            android:textAlignment="center"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSongTitle" />
+
+        <!-- Favorite button -->
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ripple_circle"
+            android:src="@android:drawable/btn_star_big_off"
+            app:tint="@color/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvArtistName" />
+
+        <!-- SeekBar -->
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:progressTint="@color/primary"
+            android:thumbTint="@color/primary"
+            android:progressBackgroundTint="@color/seek_track"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnFavorite" />
+
+        <!-- Current Time -->
+        <TextView
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="2dp"
+            android:text="0:00"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBar" />
+
+        <!-- Total Time -->
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="2dp"
+            android:text="0:00"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/seekBar" />
+
+        <!-- Control buttons container -->
+        <LinearLayout
+            android:id="@+id/controlsLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCurrentTime">
+
+            <!-- Shuffle -->
+            <ImageButton
+                android:id="@+id/btnShuffle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="@color/text_hint"
+                android:contentDescription="Shuffle" />
+
+            <!-- Previous -->
+            <ImageButton
+                android:id="@+id/btnPrevious"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_media_previous"
+                app:tint="@color/text_primary"
+                android:contentDescription="Previous" />
+
+            <!-- Play/Pause -->
+            <ImageButton
+                android:id="@+id/btnPlayPause"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_play_circle_large"
+                android:src="@android:drawable/ic_media_play"
+                android:tint="@android:color/white"
+                android:padding="16dp"
+                android:elevation="6dp"
+                android:contentDescription="Play/Pause" />
+
+            <!-- Next -->
+            <ImageButton
+                android:id="@+id/btnNext"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_media_next"
+                app:tint="@color/text_primary"
+                android:contentDescription="Next" />
+
+            <!-- Repeat -->
+            <ImageButton
+                android:id="@+id/btnRepeat"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/text_hint"
+                android:contentDescription="Repeat" />
+
+        </LinearLayout>
+
+        <!-- Audio Visualizer -->
+        <com.example.musicalbum.AudioVisualizerView
+            android:id="@+id/visualizer"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/controlsLayout" />
+
+        <!-- Bottom controls -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Lyrics button -->
+            <ImageButton
+                android:id="@+id/btnLyrics"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_menu_info_details"
+                app:tint="@color/text_secondary"
+                android:contentDescription="Lyrics" />
+
+            <!-- Equalizer button -->
+            <ImageButton
+                android:id="@+id/btnEqualizer"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="@color/text_secondary"
+                android:contentDescription="Equalizer" />
+
+            <!-- Sleep timer button -->
+            <ImageButton
+                android:id="@+id/btnSleepTimer"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_lock_idle_alarm"
+                app:tint="@color/text_secondary"
+                android:contentDescription="Sleep Timer" />
+
+            <!-- Queue button -->
+            <ImageButton
+                android:id="@+id/btnQueue"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_circle"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="@color/text_secondary"
+                android:contentDescription="Queue" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

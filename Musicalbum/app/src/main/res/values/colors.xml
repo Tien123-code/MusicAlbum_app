@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary palette -->
+    <color name="primary">#FF6C63FF</color>
+    <color name="primary_dark">#FF5A52D5</color>
+    <color name="primary_light">#FF9D97FF</color>
+    <color name="accent">#FFFF6584</color>
+    <color name="accent_light">#FFFF8FA3</color>
+
+    <!-- Surface colors (dark theme) -->
+    <color name="surface_dark">#FF0D0D0F</color>
+    <color name="surface_card">#FF1A1A2E</color>
+    <color name="surface_card_light">#FF222240</color>
+    <color name="surface_elevated">#FF16213E</color>
+
+    <!-- Text colors -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFB0B0C0</color>
+    <color name="text_hint">#FF6C6C80</color>
+
+    <!-- Status colors -->
+    <color name="success">#FF4CAF50</color>
+    <color name="warning">#FFFFC107</color>
+    <color name="error">#FFFF5252</color>
+    <color name="heart_red">#FFFF4081</color>
+
+    <!-- Gradient endpoints -->
+    <color name="gradient_start">#FF6C63FF</color>
+    <color name="gradient_end">#FFFF6584</color>
+    <color name="gradient_music_start">#FF1A1A2E</color>
+    <color name="gradient_music_end">#FF0D0D0F</color>
+
+    <!-- Tab & toolbar -->
+    <color name="tab_selected">#FF6C63FF</color>
+    <color name="tab_unselected">#FF6C6C80</color>
+    <color name="toolbar_bg">#CC0D0D0F</color>
+
+    <!-- Mini player -->
+    <color name="mini_player_bg">#F01A1A2E</color>
+
+    <!-- Seek bar -->
+    <color name="seek_progress">#FF6C63FF</color>
+    <color name="seek_thumb">#FF6C63FF</color>
+    <color name="seek_track">#33FFFFFF</color>
+
+    <!-- Ripple -->
+    <color name="ripple_color">#336C63FF</color>
+</resources>

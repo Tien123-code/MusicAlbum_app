@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_dark">
+
+    <!-- Thanh chọn nhiều -->
+    <LinearLayout
+        android:id="@+id/layoutSelectionBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/bg_selection_bar"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvSelectionCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/btnSelectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn tất cả"
+            android:textColor="@color/primary"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnAddFavVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Yêu thích"
+            android:textColor="@color/heart_red"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnDeleteVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Xóa"
+            android:textColor="@color/error"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnRenameVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Sửa tên"
+            android:textColor="@color/success"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/btnCancelVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:background="@drawable/bg_pill_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCountBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/btnDateFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Lọc ngày"
+            android:textColor="@color/primary"
+            android:textSize="12sp"
+            android:background="@drawable/bg_pill_button"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="2dp"
+        android:layoutAnimation="@anim/layout_animation_scale_bounce"/>
+
+</LinearLayout>

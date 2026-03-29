@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:padding="2dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/surface_card">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Ảnh / Thumbnail video -->
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/surface_card"/>
+
+            <!-- Icon video góc trên trái -->
+            <ImageView
+                android:id="@+id/iconVideo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="6dp"
+                android:src="@android:drawable/ic_media_play"
+                app:tint="@android:color/white"
+                android:visibility="gone"/>
+
+            <!-- Thời lượng video góc dưới phải -->
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="6dp"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:background="@drawable/bg_duration_badge"
+                android:visibility="gone"/>
+
+            <!-- Checkbox chọn nhiều góc trên phải -->
+            <CheckBox
+                android:id="@+id/cbSelect"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="6dp"
+                android:visibility="gone"
+                android:clickable="false"
+                android:buttonTint="@color/primary"/>
+
+            <!-- Nút trái tim góc dưới trái -->
+            <ImageView
+                android:id="@+id/btnHeart"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="6dp"
+                android:src="@android:drawable/btn_star_big_off"
+                android:background="@drawable/bg_duration_badge"
+                android:padding="4dp"/>
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
